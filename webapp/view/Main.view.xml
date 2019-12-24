@@ -1,0 +1,50 @@
+<mvc:View controllerName="sap.training.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Table headerText="Fluggesellschaften" items="{/data}" mode="SingleSelectMaster" selectionChange="onCarrierSelectionChange">
+		<columns>
+			<Column>
+				<Text text="Id"/>
+			</Column>
+			<Column>
+				<Text text="Fluggesellschaft"/>
+			</Column>
+			<Column>
+				<Text text="Währung"/>
+			</Column>
+			<Column>
+				<Text text="Url"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{carrier/carrId}"/>
+					<Text text="{carrier/carrName}"/>
+					<Text text="{carrier/currCode}"/>
+					<Text text="{carrier/url}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<Table headerText="Flugverbindungen" id="idConnTable" items="{connections}">
+		<columns>
+			<Column>
+				<Text text="Verbindungsnummer"/>
+			</Column>
+			<Column>
+				<Text text="Abflugstadt"/>
+			</Column>
+			<Column>
+				<Text text="Ankunftstadt"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{connId}"/>
+					<Text text="{cityFrom}"/>
+					<Text text="{cityTo}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
