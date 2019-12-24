@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog title="Flight Info">
+		<beginButton>
+			<Button press="onCloseDialog" text="Save"/>
+		</beginButton>
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="From"/>
+					<Input value="{cityFrom}"/>
+					<Label text="To"/>
+					<Input value="{cityTo}"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,19 +1,9 @@
 <mvc:View controllerName="sap.training.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-	<Table headerText="Fluggesellschaften" items="{/data}" mode="SingleSelectMaster" selectionChange="onCarrierSelectionChange">
-		<columns>
-			<Column>
-				<Text text="Id"/>
-			</Column>
-			<Column>
-				<Text text="Fluggesellschaft"/>
-			</Column>
-			<Column>
-				<Text text="Währung"/>
-			</Column>
-			<Column>
-				<Text text="Url"/>
-			</Column>
-		</columns>
+	<Table
+		headerText="Airlines"
+		items="{/data}"
+		mode="SingleSelectMaster"
+		selectionChange="onCarrierSelectionChange">
 		<items>
 			<ColumnListItem>
 				<cells>
@@ -24,17 +14,35 @@
 				</cells>
 			</ColumnListItem>
 		</items>
-	</Table>
-	<Table headerText="Flugverbindungen" id="idConnTable" items="{connections}">
 		<columns>
 			<Column>
-				<Text text="Verbindungsnummer"/>
+				<Text text="Id"/>
 			</Column>
 			<Column>
-				<Text text="Abflugstadt"/>
+				<Text text="Airline"/>
 			</Column>
 			<Column>
-				<Text text="Ankunftstadt"/>
+				<Text text="Currency"/>
+			</Column>
+			<Column>
+				<Text text="Url"/>
+			</Column>
+		</columns>
+	</Table>
+	<Table headerText="Routes"
+		id="idConnTable"
+		items="{connections}"
+		mode="SingleSelectMaster"
+		selectionChange="onRouteSelected">
+		<columns>
+			<Column>
+				<Text text="Flight number"/>
+			</Column>
+			<Column>
+				<Text text="Departure"/>
+			</Column>
+			<Column>
+				<Text text="Arrival"/>
 			</Column>
 		</columns>
 		<items>

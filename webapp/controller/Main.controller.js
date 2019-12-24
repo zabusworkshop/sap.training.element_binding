@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/Fragment"
+], function(Controller, Fragment) {
 	"use strict";
 
 	return Controller.extend("sap.training.controller.Main", {
@@ -9,7 +10,35 @@ sap.ui.define([
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("json/data.json");
 			this.getView().setModel(oModel);
+		},
+		
+		onCarrierSelectionChange: function (oEvent) {
+			var oListItem = oEvent.getParameter("listItem");
+			var sPath = oListItem.getBindingContext().getPath();
+			var oTable = this.getView().byId("idConnTable");
+			oTable.bindElement(sPath);
+		},
+		
+		onRouteSelected: function (oEvent) {
+			var oListItem = oEvent.getParameter("listItem");
+			var sPath = oListItem.getBindingContext().getPath();
+			var oView = this.getView();
+			Fragment.load({
+				name: "sap.training.view.FlightInfo",
+				type: "XML"
+			}).then(function (oDialog) {
+				oView.addDependent(oDialog);
+				oDialog.bindElement(sPath);
+				oDialog.open();
+			});
 		}
 
 	});
 });
+
+
+
+
+
+
+
