@@ -25,12 +25,18 @@ sap.ui.define([
 			var oView = this.getView();
 			Fragment.load({
 				name: "sap.training.view.FlightInfo",
-				type: "XML"
+				type: "XML",
+				controller: this
 			}).then(function (oDialog) {
+				this.oDialog = oDialog;
 				oView.addDependent(oDialog);
 				oDialog.bindElement(sPath);
 				oDialog.open();
-			});
+			}.bind(this));
+		},
+		
+		onSaveDialog: function () {
+			this.oDialog.close();
 		}
 
 	});

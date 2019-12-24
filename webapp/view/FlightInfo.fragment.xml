@@ -4,7 +4,7 @@
 	xmlns:f="sap.ui.layout.form">
 	<Dialog title="Flight Info">
 		<beginButton>
-			<Button press="onCloseDialog" text="Save"/>
+			<Button press="onSaveDialog" text="Save"/>
 		</beginButton>
 		<content>
 			<f:SimpleForm>
